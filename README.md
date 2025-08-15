@@ -1,8 +1,8 @@
-# [Project Title] - Problem Framing  
+# [Default prediction] - Problem Framing  
 **Stage:** 01 (Problem Framing & Scoping)  
 
 ## Problem Statement  
-Bank needs to predict small business loan defaults" because business impact.
+Bank needs to predict small business loan defaults because business impact.
 
 ## Stakeholder & User  
 - **Decision Owner:** Chief Risk Officer
