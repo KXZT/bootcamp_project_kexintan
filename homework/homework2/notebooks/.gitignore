@@ -1,0 +1,5 @@
+# Additional ignores
+.env.local
+*.env
+.DS_Store  # Mac metadata
+.ipynb_checkpoints/  # Jupyter temp files
