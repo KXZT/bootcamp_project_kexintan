@@ -17,6 +17,13 @@ The owner of a small coffee shop wants to understand their sales patterns better
 - Clear visualizations of sales patterns
 - Easy-to-use interface for daily predictions
 
+## Data Storage
+
+- **Raw Data**: `data/raw/coffee_sales.csv` - Original immutable data
+- **Processed Data**: `data/processed/` - Cleaned and transformed data
+- **Data Loading**: Use `load_data()` from `src/utils.py`
+- **Environment**: Paths configured in `.env` file
+
 ## Project Structure
 coffee-sales-analysis/
 ├── data/

@@ -6,29 +6,30 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+def get_data_path():
+    """Get data path from environment variable with fallback."""
+    return os.getenv('DATA_PATH', '../data/raw/coffee_sales.csv')
+
 def load_data():
     """
-    Loads the raw coffee sales data from the path specified in .env file.
+    Loads the raw coffee sales data.
     Returns a pandas DataFrame.
     """
-    data_path = os.getenv('DATA_PATH', '../data/raw/coffee_sales.csv')
+    data_path = get_data_path()
     try:
         df = pd.read_csv(data_path)
-        print(f"Successfully loaded data with {len(df)} rows and {len(df.columns)} columns")
+        print(f"Successfully loaded data from {data_path}")
+        print(f"Shape: {df.shape}")
         return df
     except FileNotFoundError:
         print(f"Error: File not found at {data_path}")
+        print("Please check your DATA_PATH in .env file or run generate_data.ipynb")
         return None
 
-def summarize_data(df):
+def save_processed_data(df, filename):
     """
-    Provides a basic summary of the DataFrame.
+    Save processed data to the processed folder.
     """
-    print("=== DATA SUMMARY ===")
-    print(f"Shape: {df.shape}")
-    print("\n=== COLUMN TYPES ===")
-    print(df.dtypes)
-    print("\n=== MISSING VALUES ===")
-    print(df.isnull().sum())
-    print("\n=== BASIC STATISTICS ===")
-    print(df.describe())
+    processed_path = f'../data/processed/{filename}'
+    df.to_csv(processed_path, index=False)
+    print(f"Data saved to {processed_path}")
